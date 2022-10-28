@@ -1,0 +1,52 @@
+.header {
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: solid 1px darkgray;
+    margin-bottom: 2rem;
+}
+
+.wordGuess {
+    width: max-content;
+    margin: 5px auto;
+}
+
+.letterGuess {
+    border: solid 1px darkgray;
+    border-radius: 0;
+    font-size: 3rem;
+    width: 3rem;
+    margin: 0 2px;
+    text-align: center;
+
+    caret-color: transparent;
+}
+
+.submitBtn {
+    cursor: pointer;
+    display: block;
+    margin: 3rem auto;
+    font-size: 1.2rem;
+}
+
+.green {
+    background-color: #538d4e;
+    color: white;
+}
+
+.yellow {
+    background-color: #b59f3b;
+    color: white;
+}
+
+.grey {
+    background-color: #3a3a3c;
+    color: white;
+}
+
+.feedback {
+    font-size: 1.2rem;
+    width: max-content;
+    margin: auto;
+}
