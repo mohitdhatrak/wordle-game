@@ -16,11 +16,22 @@
     border: solid 1px darkgray;
     border-radius: 0;
     font-size: 3rem;
-    width: 3rem;
-    margin: 0 2px;
+    margin: 0 3px;
     text-align: center;
+    display: inline-block;
+    width: 3.5rem;
+    height: 3.5rem;
+    /* padding: 2px; */
 
     caret-color: transparent;
+}
+
+.letterGuess-blank {
+    /* padding: 1.5rem 10px; */
+}
+
+.letterGuess-filled {
+    /* padding: 0 10px; */
 }
 
 .submitBtn {
@@ -34,10 +45,6 @@
     font-size: 1.2rem;
 }
 
-.submitBtn:hover {
-    opacity: 0.8;
-}
-
 .green {
     background-color: #538d4e;
     color: white;
@@ -49,7 +56,7 @@
 }
 
 .grey {
-    background-color: #3a3a3c;
+    background-color: #787c7e;
     color: white;
 }
 
@@ -75,6 +82,10 @@
     cursor: pointer;
 }
 
-.eachKey:hover {
-    opacity: 0.8;
+.disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }

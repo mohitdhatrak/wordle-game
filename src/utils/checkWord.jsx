@@ -3,6 +3,7 @@ import { displayResult } from "./displayResult";
 
 export function checkWord(
     wordGrid,
+    setLetterNum,
     attemptNum,
     setAttemptNum,
     answerWord,
@@ -26,11 +27,13 @@ export function checkWord(
 
     if (wordsDictionary.includes(word)) {
         setAttemptNum(attemptNum + 1);
+        setLetterNum(0);
 
         displayResult(
             word,
             answerWord,
             attemptNum,
+            setAttemptNum,
             letterColour,
             setLetterColour,
             setFeedback

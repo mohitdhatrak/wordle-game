@@ -1,11 +1,18 @@
 import { Word } from "./Word";
 
-export function GuessGrid({ wordGrid, setWordGrid, attemptNum, letterColour }) {
+export function GuessGrid({
+    wordGrid,
+    setWordGrid,
+    letterNum,
+    attemptNum,
+    letterColour,
+}) {
     return (
-        <div>
+        <div className="disable-select">
             <Word
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
                 guessNum="0"
@@ -13,6 +20,7 @@ export function GuessGrid({ wordGrid, setWordGrid, attemptNum, letterColour }) {
             <Word
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
                 guessNum="1"
@@ -20,6 +28,7 @@ export function GuessGrid({ wordGrid, setWordGrid, attemptNum, letterColour }) {
             <Word
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
                 guessNum="2"
@@ -27,6 +36,7 @@ export function GuessGrid({ wordGrid, setWordGrid, attemptNum, letterColour }) {
             <Word
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
                 guessNum="3"
@@ -34,6 +44,7 @@ export function GuessGrid({ wordGrid, setWordGrid, attemptNum, letterColour }) {
             <Word
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
                 guessNum="4"
@@ -41,6 +52,7 @@ export function GuessGrid({ wordGrid, setWordGrid, attemptNum, letterColour }) {
             <Word
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
                 guessNum="5"

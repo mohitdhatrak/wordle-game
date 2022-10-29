@@ -1,15 +1,52 @@
-export function validateInput(e, row, column, wordGrid, setWordGrid) {
-    let input = e.target.value;
-    e.target.value = "";
+import { checkWord } from "./checkWord";
 
-    const regex = /[a-zA-Z]/;
+export function validateInput(
+    e,
+    wordGrid,
+    setWordGrid,
+    letterNum,
+    setLetterNum,
+    attemptNum,
+    setAttemptNum,
+    answerWord,
+    letterColour,
+    setLetterColour,
+    setFeedback,
+    inputEvent
+) {
+    if (attemptNum < 6) {
+        let input;
+        if (inputEvent === "keyPress") {
+            input = e.key;
+        } else {
+            input = e.target.innerText;
+        }
 
-    if (regex.test(input)) {
-        e.target.value = input.toUpperCase();
-    } else {
-        input = e.target.value;
+        const regex = /[a-zA-Z]/;
+
+        if (regex.test(input) && input.length === 1) {
+            if (letterNum < 5) {
+                wordGrid[attemptNum][letterNum] = input.toUpperCase();
+                setWordGrid([...wordGrid]);
+                setLetterNum(letterNum + 1);
+            }
+        } else if (input === "Enter") {
+            checkWord(
+                wordGrid,
+                setLetterNum,
+                attemptNum,
+                setAttemptNum,
+                answerWord,
+                letterColour,
+                setLetterColour,
+                setFeedback
+            );
+        } else if (input === "Backspace") {
+            wordGrid[attemptNum][letterNum - 1] = "";
+            setWordGrid([...wordGrid]);
+            if (letterNum > 0) {
+                setLetterNum(letterNum - 1);
+            }
+        }
     }
-
-    wordGrid[row][column] = input;
-    setWordGrid([...wordGrid]);
 }

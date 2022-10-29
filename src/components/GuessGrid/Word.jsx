@@ -4,6 +4,8 @@ export function Word({
     guessNum,
     wordGrid,
     setWordGrid,
+    row,
+    letterNum,
     attemptNum,
     letterColour,
 }) {
@@ -13,41 +15,46 @@ export function Word({
                 guessNum={guessNum}
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
-                letterNum="0"
+                letterIndex="0"
             />
             <Letter
                 guessNum={guessNum}
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
-                letterNum="1"
+                letterIndex="1"
             />
             <Letter
                 guessNum={guessNum}
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
-                letterNum="2"
+                letterIndex="2"
             />
             <Letter
                 guessNum={guessNum}
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
-                letterNum="3"
+                letterIndex="3"
             />
             <Letter
                 guessNum={guessNum}
                 wordGrid={wordGrid}
                 setWordGrid={setWordGrid}
+                letterNum={letterNum}
                 attemptNum={attemptNum}
                 letterColour={letterColour}
-                letterNum="4"
+                letterIndex="4"
             />
         </div>
     );

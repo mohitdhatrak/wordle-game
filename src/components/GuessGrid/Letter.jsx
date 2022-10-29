@@ -1,27 +1,25 @@
-import { validateInput } from "../../utils/validateInput";
-
 export function Letter({
     guessNum,
-    letterNum,
+    letterIndex,
     wordGrid,
     setWordGrid,
+    letterNum,
     attemptNum,
     letterColour,
 }) {
-    const row = guessNum;
-    const column = letterNum;
-
     return (
-        <input
-            type="text"
+        <span
             className={`letterGuess ${
-                letterColour[row] ? letterColour[row][column] : ""
+                wordGrid[guessNum][letterIndex] === ""
+                    ? "letterGuess-blank"
+                    : "letterGuess-filled"
+            } ${
+                letterColour[guessNum]
+                    ? letterColour[guessNum][letterIndex]
+                    : ""
             }`}
-            maxLength="1"
-            disabled={attemptNum !== Number(guessNum)}
-            onChange={(e) =>
-                validateInput(e, row, column, wordGrid, setWordGrid)
-            }
-        />
+        >
+            {wordGrid[guessNum][letterIndex]}
+        </span>
     );
 }
