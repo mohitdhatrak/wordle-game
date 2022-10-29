@@ -24,10 +24,18 @@
 }
 
 .submitBtn {
+    border-radius: 5px;
+    border: none;
+    background-color: #d3d6da;
+    padding: 5px 1rem;
     cursor: pointer;
     display: block;
-    margin: 3rem auto;
+    margin: 2rem auto;
     font-size: 1.2rem;
+}
+
+.submitBtn:hover {
+    opacity: 0.8;
 }
 
 .green {
@@ -46,7 +54,27 @@
 }
 
 .feedback {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     width: max-content;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+.keysRow {
+    width: max-content;
+    margin: 2.5rem auto;
+}
+
+.eachKey {
+    font-size: 1.2rem;
+    margin: 5px;
+    padding: 1rem;
+    border: 1px solid #d3d6da;
+    background-color: #d3d6da;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.eachKey:hover {
+    opacity: 0.8;
 }

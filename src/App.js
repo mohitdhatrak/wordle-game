@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { GuessGrid } from "./components/GuessGrid/GuessGrid";
 import { HeaderBar } from "./components/HeaderBar/HeaderBar";
+import { Keyboard } from "./components/Keyboard/Keyboard";
 import { checkWord } from "./utils/checkWord";
 
 /* App structure
@@ -78,7 +79,7 @@ export function App() {
 
             <div className="feedback">{feedback}</div>
 
-            {/* <Keyboard /> */}
+            <Keyboard />
         </div>
     );
 }

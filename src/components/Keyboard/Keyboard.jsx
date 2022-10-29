@@ -8,9 +8,11 @@ export function Keyboard() {
     return (
         <>
             {keysLayout.map((keysRow, index) => (
-                <div key={index}>
+                <div key={index} className="keysRow">
                     {keysRow.map((key) => (
-                        <span key={key}>{key}</span>
+                        <span key={key} className="eachKey">
+                            {key}
+                        </span>
                     ))}
                 </div>
             ))}
