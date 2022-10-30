@@ -8,7 +8,7 @@ export function validateInput(
     setLetterNum,
     attemptNum,
     setAttemptNum,
-    answerWord,
+    answer,
     letterColour,
     setLetterColour,
     setFeedback,
@@ -36,7 +36,7 @@ export function validateInput(
                 setLetterNum,
                 attemptNum,
                 setAttemptNum,
-                answerWord,
+                answer,
                 letterColour,
                 setLetterColour,
                 setFeedback
@@ -48,5 +48,7 @@ export function validateInput(
                 setLetterNum(letterNum - 1);
             }
         }
+    } else {
+        return;
     }
 }

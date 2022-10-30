@@ -7,7 +7,7 @@ export function Keyboard({
     setLetterNum,
     attemptNum,
     setAttemptNum,
-    answerWord,
+    answer,
     letterColour,
     setLetterColour,
     setFeedback,
@@ -25,7 +25,14 @@ export function Keyboard({
                     {keysRow.map((key) => (
                         <span
                             key={key}
-                            className="eachKey"
+                            className={`eachKey
+                             ${
+                                 letterColour.keyboardColour[key.toLowerCase()]
+                                     ? letterColour.keyboardColour[
+                                           key.toLowerCase()
+                                       ]
+                                     : ""
+                             }`}
                             onClick={(e) =>
                                 validateInput(
                                     e,
@@ -35,7 +42,7 @@ export function Keyboard({
                                     setLetterNum,
                                     attemptNum,
                                     setAttemptNum,
-                                    answerWord,
+                                    answer,
                                     letterColour,
                                     setLetterColour,
                                     setFeedback,

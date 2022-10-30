@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { GuessGrid } from "./components/GuessGrid/GuessGrid";
 import { HeaderBar } from "./components/HeaderBar/HeaderBar";
 import { Keyboard } from "./components/Keyboard/Keyboard";
-import { checkWord } from "./utils/checkWord";
 import { validateInput } from "./utils/validateInput";
 
 /* App structure
@@ -29,8 +28,8 @@ export function App() {
     ]);
     const [letterNum, setLetterNum] = useState(0);
     const [attemptNum, setAttemptNum] = useState(0);
-    const [answerWord, setAnswerWord] = useState("");
-    const [letterColour, setLetterColour] = useState([]);
+    const [answer, setAnswer] = useState({});
+    const [letterColour, setLetterColour] = useState({ keyboardColour: {} });
     const [feedback, setFeedback] = useState("You have 6 attempts left!");
 
     useEffect(() => {
@@ -40,7 +39,7 @@ export function App() {
                     "https://random-word-api.herokuapp.com/word?length=5"
                 );
                 const data = await response.data;
-                setAnswerWord(data[0]);
+                setAnswer({ ...answer, answerWord: data[0] });
                 console.log(`Answer word is - ${data[0]}`);
             } catch (error) {
                 // error handling pending
@@ -61,7 +60,7 @@ export function App() {
                     setLetterNum,
                     attemptNum,
                     setAttemptNum,
-                    answerWord,
+                    answer,
                     letterColour,
                     setLetterColour,
                     setFeedback,
@@ -81,25 +80,6 @@ export function App() {
                 setLetterColour={setLetterColour}
             />
 
-            <button
-                className="submitBtn"
-                onClick={() =>
-                    checkWord(
-                        wordGrid,
-                        setLetterNum,
-                        attemptNum,
-                        setAttemptNum,
-                        answerWord,
-                        letterColour,
-                        setLetterColour,
-                        setFeedback
-                    )
-                }
-                disabled={attemptNum > 5}
-            >
-                Submit word
-            </button>
-
             <div className="feedback">{feedback}</div>
 
             <Keyboard
@@ -111,7 +91,7 @@ export function App() {
                 setAttemptNum={setAttemptNum}
                 letterColour={letterColour}
                 setLetterColour={setLetterColour}
-                answerWord={answerWord}
+                answer={answer}
                 setFeedback={setFeedback}
             />
         </div>

@@ -6,7 +6,7 @@ export function checkWord(
     setLetterNum,
     attemptNum,
     setAttemptNum,
-    answerWord,
+    answer,
     letterColour,
     setLetterColour,
     setFeedback
@@ -31,7 +31,7 @@ export function checkWord(
 
         displayResult(
             word,
-            answerWord,
+            answer,
             attemptNum,
             setAttemptNum,
             letterColour,
