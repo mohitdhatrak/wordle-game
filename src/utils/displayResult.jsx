@@ -1,3 +1,5 @@
+import { assignColours } from "./assignColours";
+
 export function displayResult(
     word,
     answer,
@@ -7,15 +9,12 @@ export function displayResult(
     setLetterColour,
     setFeedback
 ) {
-    // destructuring
+    // destructuring state variables
     const { answerWord } = answer;
     const { keyboardColour } = letterColour;
 
-    const charColour = [];
+    // to get number of occurences of each letter in answer word
     const answerLetterObj = {};
-    const userWordObj = {};
-
-    // to get number of occurences of letter in answer word
     for (let i = 0; i < 5; i++) {
         if (answerLetterObj[answerWord[i]] === undefined) {
             answerLetterObj[answerWord[i]] = 1;
@@ -24,7 +23,8 @@ export function displayResult(
         }
     }
 
-    // to get number of occurences of letter in user guess word
+    // to get number of occurences of each letter in user guess word
+    const userWordObj = {};
     for (let i = 0; i < 5; i++) {
         if (userWordObj[word[i]] === undefined) {
             userWordObj[word[i]] = 1;
@@ -33,34 +33,15 @@ export function displayResult(
         }
     }
 
-    // extract logic to another function and export
-    for (let i = 0; i < 5; i++) {
-        if (word[i] === answerWord[i]) {
-            charColour[i] = "green";
-            keyboardColour[word[i]] = "green";
-            // userWordObj[word[i]]--;
-        } else if (
-            answerLetterObj[word[i]] !== undefined
-            // && userWordObj[word[i]] > 0
-        ) {
-            if (
-                // answerLetterObj[word[i]] === 1 ||
-                userWordObj[word[i]] <= answerLetterObj[word[i]]
-            ) {
-                charColour[i] = "yellow";
-                keyboardColour[word[i]] =
-                    keyboardColour[word[i]] === "green" ? "green" : "yellow";
-                // userWordObj[word[i]]--;
-            } else if (userWordObj[word[i]] > answerLetterObj[word[i]]) {
-                // charColour[i] = "yellow";
-            }
-        } else {
-            charColour[i] = "grey";
-            keyboardColour[word[i]] = "grey";
-        }
-    }
+    const charColour = assignColours(
+        word,
+        answerWord,
+        keyboardColour,
+        answerLetterObj,
+        userWordObj
+    );
 
-    // check later if attemptNum is correct or wrong
+    // reminder for myself: check later if attemptNum used here is correct or wrong
     setLetterColour({
         ...letterColour,
         [attemptNum]: charColour,

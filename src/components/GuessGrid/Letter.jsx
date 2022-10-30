@@ -10,10 +10,6 @@ export function Letter({
     return (
         <span
             className={`letterGuess ${
-                wordGrid[guessNum][letterIndex] === ""
-                    ? "letterGuess-blank"
-                    : "letterGuess-filled"
-            } ${
                 letterColour[guessNum]
                     ? letterColour[guessNum][letterIndex]
                     : ""

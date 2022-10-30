@@ -25,7 +25,7 @@ export function checkWord(
 
     console.log(`User guessed word - ${word}`);
 
-    if (wordsDictionary.includes(word)) {
+    if (wordsDictionary[word]) {
         setAttemptNum(attemptNum + 1);
         setLetterNum(0);
 

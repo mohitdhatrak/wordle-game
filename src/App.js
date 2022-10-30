@@ -68,6 +68,7 @@ export function App() {
                 )
             }
             // onLoad={(e) => e.target.focus()}
+            // autoFocus
         >
             <HeaderBar />
 

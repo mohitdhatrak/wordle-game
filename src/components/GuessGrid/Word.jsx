@@ -4,7 +4,6 @@ export function Word({
     guessNum,
     wordGrid,
     setWordGrid,
-    row,
     letterNum,
     attemptNum,
     letterColour,
