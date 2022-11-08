@@ -6,7 +6,7 @@ function decideColours(
     charColour
 ) {
     let notGreen =
-        excessLetterObj?.green[letter] !== undefined
+        excessLetterObj?.green?.[letter] !== undefined
             ? userWordObj[letter] - excessLetterObj.green[letter].count
             : userWordObj[letter];
 

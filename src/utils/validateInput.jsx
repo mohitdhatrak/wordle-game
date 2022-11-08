@@ -12,7 +12,10 @@ export function validateInput(
     letterColour,
     setLetterColour,
     setFeedback,
-    inputEvent
+    inputEvent,
+    score,
+    setScore,
+    setButtonsVisible
 ) {
     if (attemptNum < 6) {
         let input;
@@ -39,7 +42,10 @@ export function validateInput(
                 answer,
                 letterColour,
                 setLetterColour,
-                setFeedback
+                setFeedback,
+                score,
+                setScore,
+                setButtonsVisible
             );
         } else if (input === "Backspace") {
             wordGrid[attemptNum][letterNum - 1] = "";

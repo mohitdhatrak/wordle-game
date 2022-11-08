@@ -7,7 +7,10 @@ export function displayResult(
     setAttemptNum,
     letterColour,
     setLetterColour,
-    setFeedback
+    setFeedback,
+    score,
+    setScore,
+    setButtonsVisible
 ) {
     // destructuring state variables
     const { answerWord } = answer;
@@ -33,6 +36,7 @@ export function displayResult(
         }
     }
 
+    // getting colours assigned for each letter of word grid and keyboard
     const charColour = assignColours(
         word,
         answerWord,
@@ -50,9 +54,12 @@ export function displayResult(
 
     if (word === answerWord) {
         setFeedback("Congrats, word guessed correctly!");
-        setAttemptNum(6); // to stop input once word guessed correctly
+        setScore(score + 1);
+        setButtonsVisible(true);
+        setAttemptNum("disabled"); // to stop input once word guessed correctly
     } else if (attemptNum === 5) {
         setFeedback(`Game over! Correct answer is ${answerWord}`);
+        setButtonsVisible(true);
         console.log(`Correct answer is ${answerWord}`);
     } else {
         setFeedback(`You have ${5 - attemptNum} attempts left!`);

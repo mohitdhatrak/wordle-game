@@ -11,6 +11,9 @@ export function Keyboard({
     letterColour,
     setLetterColour,
     setFeedback,
+    score,
+    setScore,
+    setButtonsVisible,
 }) {
     const keysLayout = [
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
@@ -46,7 +49,10 @@ export function Keyboard({
                                     letterColour,
                                     setLetterColour,
                                     setFeedback,
-                                    "click"
+                                    "click",
+                                    score,
+                                    setScore,
+                                    setButtonsVisible
                                 )
                             }
                         >

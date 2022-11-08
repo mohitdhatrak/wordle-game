@@ -9,7 +9,10 @@ export function checkWord(
     answer,
     letterColour,
     setLetterColour,
-    setFeedback
+    setFeedback,
+    score,
+    setScore,
+    setButtonsVisible
 ) {
     let word = "";
 
@@ -36,7 +39,10 @@ export function checkWord(
             setAttemptNum,
             letterColour,
             setLetterColour,
-            setFeedback
+            setFeedback,
+            score,
+            setScore,
+            setButtonsVisible
         );
     } else {
         setFeedback("Word not in list!");
