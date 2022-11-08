@@ -9,3 +9,15 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById("root")
 );
+
+/* App structure
+        <App>
+            <HeaderBar />
+            <MainBody>
+                <GuessGrid />
+                // <feedbackText />
+                // <NewRoundOrResetGameBtns />  
+                <Keyboard />
+            </MainBody>
+        </App> 
+*/

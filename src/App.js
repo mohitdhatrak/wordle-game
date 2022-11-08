@@ -1,23 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GuessGrid } from "./components/GuessGrid/GuessGrid";
 import { HeaderBar } from "./components/HeaderBar/HeaderBar";
 import { Keyboard } from "./components/Keyboard/Keyboard";
 import NewGameReset from "./components/NewGameReset/NewGameReset";
 import wordsDictionary from "./words.json";
 import { validateInput } from "./utils/validateInput";
-
-/* App structure
-        <App>
-            <HeaderBar />
-            <MainBody>
-                <GuessGrid />
-                // <submitBtn />
-                // <feedbackText />
-                <Keyboard />
-            </MainBody>
-        </App> 
-*/
 
 export function App() {
     const [wordGrid, setWordGrid] = useState([
@@ -29,13 +17,18 @@ export function App() {
         ["", "", "", "", ""],
     ]);
     const [letterNum, setLetterNum] = useState(0);
-    const [attemptNum, setAttemptNum] = useState("disabled"); // at start input disabled till valid word is fetched
+    const [attemptNum, setAttemptNum] = useState("disabled"); // at start input is disabled till valid word is fetched
     const [answer, setAnswer] = useState({});
     const [letterColour, setLetterColour] = useState({ keyboardColour: {} });
-    const [feedback, setFeedback] = useState("You have 6 attempts left!");
+    const [feedback, setFeedback] = useState(
+        "You have 6 attempts left to guess this word!"
+    );
     const [roundNumber, setRoundNumber] = useState(1);
     const [score, setScore] = useState(0);
     const [buttonsVisible, setButtonsVisible] = useState(false);
+
+    // used to focus on required element when page renders
+    const divReference = useRef(null);
 
     useEffect(() => {
         (async () => {
@@ -54,14 +47,16 @@ export function App() {
 
                 if (attemptNum === "disabled") {
                     // input enabled once word fetched
-                    // instead of doing this, add a loader, till word is loaded
                     setAttemptNum(0);
                 }
 
+                // to focus on the required element
+                divReference.current.focus();
+
                 console.log(`Answer word is - ${data[0]}`);
             } catch (error) {
-                // error handling pending
                 // console.log(error);
+                // error handling pending
             }
         })();
     }, [roundNumber]);
@@ -88,9 +83,10 @@ export function App() {
                     setButtonsVisible
                 )
             }
-            className="app-body"
-            // onLoad={(e) => e.target.focus()}
-            // autoFocus
+            className={`app-body ${
+                attemptNum === "disabled" ? "loader-container" : ""
+            }`}
+            ref={divReference} // used to reference the element to be focused on render
         >
             <HeaderBar />
 

@@ -20,5 +20,5 @@ export function resetGrid(
     setAttemptNum("disabled");
     setAnswer({});
     setLetterColour({ keyboardColour: {} });
-    setFeedback("You have 6 attempts left!");
+    setFeedback("You have 6 attempts left to guess this word!");
 }

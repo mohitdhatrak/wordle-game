@@ -22,7 +22,13 @@ export function validateInput(
         if (inputEvent === "keyPress") {
             input = e.key;
         } else {
-            input = e.target.innerText;
+            if (e.target.alt === undefined) {
+                input = e.target.innerText;
+            }
+            // for backspace key, it is an image, so it has alt attribute
+            else {
+                input = e.target.alt;
+            }
         }
 
         const regex = /[a-zA-Z]/;

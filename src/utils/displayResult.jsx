@@ -56,12 +56,14 @@ export function displayResult(
         setFeedback("Congrats, word guessed correctly!");
         setScore(score + 1);
         setButtonsVisible(true);
-        setAttemptNum("disabled"); // to stop input once word guessed correctly
+        setAttemptNum("stopInput"); // to stop input once word guessed correctly
     } else if (attemptNum === 5) {
         setFeedback(`Game over! Correct answer is ${answerWord}`);
         setButtonsVisible(true);
         console.log(`Correct answer is ${answerWord}`);
     } else {
-        setFeedback(`You have ${5 - attemptNum} attempts left!`);
+        setFeedback(
+            `You have ${5 - attemptNum} attempts left to guess this word!`
+        );
     }
 }

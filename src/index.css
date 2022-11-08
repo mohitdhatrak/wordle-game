@@ -42,6 +42,8 @@ body {
     font-size: 1.2rem;
     width: max-content;
     margin: 1.2rem auto;
+    max-width: 80%;
+    text-align: center;
 }
 
 .keysRow {
@@ -95,4 +97,36 @@ body {
     border-radius: 5px;
     border: none;
     font-size: 1.2rem;
+}
+
+.backspace-icon {
+    width: 1.2rem;
+}
+
+/* code for loader, using a GIF */
+.loader-container {
+    width: 100%;
+    height: 75vh;
+    position: fixed;
+    background: url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif")
+        center no-repeat;
+    z-index: 1;
+}
+
+@media screen and (max-width: 410px) {
+    .keysRow {
+        width: max-content;
+        margin: 1.4rem auto;
+    }
+
+    .eachKey {
+        font-size: 1rem;
+        margin: 0px 2px;
+        padding: 0.5rem;
+        border-radius: 5px;
+    }
+
+    .backspace-icon {
+        width: 1rem;
+    }
 }

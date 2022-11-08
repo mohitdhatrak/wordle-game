@@ -1,4 +1,5 @@
 import { validateInput } from "../../utils/validateInput";
+import backspaceKey from "../../assets/backspaceKey.png";
 
 export function Keyboard({
     wordGrid,
@@ -56,7 +57,15 @@ export function Keyboard({
                                 )
                             }
                         >
-                            {key}
+                            {key === "Backspace" ? (
+                                <img
+                                    className="backspace-icon"
+                                    src={backspaceKey}
+                                    alt="Backspace"
+                                />
+                            ) : (
+                                key
+                            )}
                         </span>
                     ))}
                 </div>
