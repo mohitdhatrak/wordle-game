@@ -20,7 +20,18 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "preinstall": "npx npm-force-resolutions"
+    },
+    "resolutions": {
+        "@testing-library/jest-dom/*/decode-uri-component": "0.2.1",
+        "react-scripts/*/ejs": "3.1.7",
+        "react-scripts/*/minimatch": "3.0.5",
+        "react-scripts/*/loader-utils": "3.2.1",
+        "react-scripts/*/async": "2.6.4",
+        "react-scripts/*/json5": "2.2.2",
+        "react-scripts/*/terser": "5.14.2",
+        "react-scripts/*/nth-check": "2.0.1"
     },
     "eslintConfig": {
         "extends": [
